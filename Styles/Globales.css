@@ -1,0 +1,61 @@
+p{
+	/*background-color: red;*/
+}
+th{
+	background-color: red;
+	text-align: center;
+}
+
+
+ header{
+            position: relative;
+            margin: auto;
+            text-align: center;
+            padding: 5px;
+        }
+        nav{
+            position: relative;
+            margin: auto;
+            width: 100%;
+            height: auto;
+            background: black;
+        }
+        nav ul{
+            position: relative;
+            margin: auto;
+            width: 50%;
+            text-align: center;
+        }
+        nav ul li{
+            display: inline-block;
+            width: 18%;
+            line-height: 50px;
+            list-style: none;
+        }
+        nav ul li a{
+            color: white;
+            text-decoration-color: none;
+        }
+        section{
+            position: relative;
+            padding: 20px;
+        }
+        fieldset{
+            margin: 2em 0;
+            padding: 1em 2em;
+            border: solid 1px #ccc;
+            border-radius: 6px;
+            min-width: 200px;
+        }
+        legend{
+            font-size: 1.25em;
+            padding: 0 .25em;
+            color: #999;
+        }
+
+.btnLogOut{
+    position: relative;
+    left: 86%;
+    top: 10px;
+    /*style="margin-top: 30px; text-align: right;"*/
+}
