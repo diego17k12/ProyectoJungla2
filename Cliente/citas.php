@@ -54,7 +54,7 @@
             <a class="btnLogOut btn btn-danger" href="../Cliente/Cliente.php?id=<?php echo $_GET["idusu"];?>">Regresar a usuario</a>
         </div>
         <div class="mb-3 row">
-            <label class="form-label col-sm-2">fecha: </label>
+            <label class="form-label col-sm-2">Fecha: </label>
             <div class="col-sm-10">
                 <input name="fecha" class="form-control" type="datetime-local">
             </div>
@@ -73,7 +73,7 @@
                     ?>
                 </select>
             </div>
-             <label class="control-label col-sm-2">tipo servicio: </label>  
+             <label class="control-label col-sm-2">Tipo de servicio: </label>  
              <div class="col-sm-4">
                 <select name="servicio" class="form-control" id="">
                     <option value="">seleccione</option>
@@ -101,12 +101,12 @@
         <table class="mt-3 table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>idcita</th>
-                    <th>mascota</th>
-                    <th>fecha</th>
-                    <th>hora</th>
+                    <th>Numero de cita</th>
+                    <th>Mascota</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
                     <th>Servicio</th>
-                    <th>Administrar</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

@@ -2,7 +2,7 @@
 $host 	   = "localhost";
 $usuariobd = "root";
 $password  = "";
-$nombrebd  = "veterinaria2";
+$nombrebd  = "veterinaria";
 $dsn  	   = "mysql:host=$host;dbname=$nombrebd";
 
 try{
