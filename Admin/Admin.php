@@ -109,9 +109,9 @@ if(isset($_POST['Consultar']))
 	  <div class=" mb-3 mt-4 row">
 		<h2><span>Usuarios registrados en el sistema:</span></h2>
 		<div class="mb-3" style="text-align: right">
-			<button type="submit" id="pdf" name="generate_pdfUSU" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>
+			<!--<button type="submit" id="pdf" name="generate_pdfUSU" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>
 				Exportar PDF Ingreso usuarios
-			</button>
+			</button>-->
 			<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>
 			Exportar PDF usuarios</button>
 		</div>

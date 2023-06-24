@@ -31,40 +31,47 @@ class PDF extends FPDF
 	}
 }
 
-
 $db = new dbConexion();
 $connString = $db->getConexion();
-$display_heading = array('id_usuario'=>'ID', 'cedula' => 'cedula','nombre'=> 'Nombre', 'apellido'=> 'apellido','telefono'=> 'telefono','direccion'=> 'direccion',);
 
 //se realiza la consulta a BD buscando un resultado para mostrar
-$result = mysqli_query($connString, "SELECT id,Usuario,Tipo
-					   FROM Usuario") or die("database error:". mysqli_error($connString));
-$header = mysqli_query($connString, "SHOW columns FROM cliente");
+$sql = "select c.idCitas,cl.nombre,cl.apellido,m.Nombre,c.fechaCitas,c.TipoServicio 
+        from citas c 
+        JOIN mascota m 
+        on m.id_Mascota=c.id_Mascota 
+        join cliente cl 
+        on cl.id_usuario=m.Idcliente
+        where c.id_veterinario = ".$_GET["idvete"].";";
+
+$result = mysqli_query($connString,$sql) or die("database error:". mysqli_error($connString));
+//con esto se puede traer el nombre exacto como esta en la base de datos
+//$header = mysqli_query($connString, "SHOW columns FROM cliente");
 
 $pdf = new PDF();
-
 //header
 $pdf->AddPage();
 //foter page
 $pdf->AliasNbPages();
 $pdf->SetFont('Arial','B',12);
-// Declaramos el ancho de las columnas
-$w = array(30, 80, 80);
+// Declaramos el ancho de las columnas 
+$w = array(40, 50, 50, 40);
 //Declaramos el encabezado de la tabla
-$pdf->Cell(30,12,'Id',1);
-$pdf->Cell(80,12,'Usuario',1);
-$pdf->Cell(80,12,'Tipo',1);
+$pdf->Cell($w[0],12,'Nombre mascota',1);
+$pdf->Cell($w[1],12,'Nombre cliente',1);
+$pdf->Cell($w[2],12,'Fecha Cita',1);
+$pdf->Cell($w[3],12,'Tipo De Servicio',1);
 $pdf->Ln();
 $pdf->SetFont('Arial','',12);
 //Mostramos el contenido de la tabla
 foreach($result as $row)
 {
-$pdf->Cell($w[0],6,$row['id'],1);
-$pdf->Cell($w[1],6,$row['Usuario'],1);
-$pdf->Cell($w[2],6,$row['Tipo'],1);
-/*$pdf->Cell($w[3],6,number_format($row['telefono']),1);
-$pdf->Cell($w[3],6,$row['direccion'],1);*/
-$pdf->Ln();
+	$pdf->Cell($w[0],6,$row['Nombre'],1);
+	$pdf->Cell($w[1],6,$row['nombre']." ".$row['apellido'],1);
+	$pdf->Cell($w[2],6,$row['fechaCitas'],1);
+	$pdf->Cell($w[3],6,$row['TipoServicio'],1);
+	/*$pdf->Cell($w[3],6,number_format($row['telefono']),1);
+	$pdf->Cell($w[3],6,$row['direccion'],1);*/
+	$pdf->Ln();
 }
 /* Limpiamos la salida del búfer y lo desactivamos */
 ob_end_clean();

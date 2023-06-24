@@ -16,7 +16,7 @@ $resultadousu= $sentenciausu-> fetch();
 
 
 //se traen las citas asignadas al veterinario
-$sql = "select c.idCitas,cl.nombre,m.Nombre,c.fechaCitas,c.TipoServicio 
+$sql = "select c.idCitas,cl.nombre,cl.apellido,m.Nombre,c.fechaCitas,c.TipoServicio 
         from citas c 
         JOIN mascota m 
         on m.id_Mascota=c.id_Mascota 
@@ -24,7 +24,7 @@ $sql = "select c.idCitas,cl.nombre,m.Nombre,c.fechaCitas,c.TipoServicio
         on cl.id_usuario=m.Idcliente
         where c.id_veterinario = :idveterinario;";
 $sentencia = $conexion->prepare($sql);
-$sentencia->bindValue('idveterinario',$resultadousu["id_Asis"]);
+$sentencia->bindValue('idveterinario',$resultadousu['id_Asis']);
 $sentencia->execute();
 $resultado= $sentencia-> fetchAll();
 
@@ -35,9 +35,15 @@ if (isset($_GET['idElim']))
     $sentencia->execute();
     header('Location: ../Doctor/Veterinario.php');
 }
+
+if(isset($_POST['generate_pdf']))
+{
+    //se encarga de redireccioar a la pagina que se encarga de generar el pdf de reporte
+    header('Location: ../Admin/crearPdfAdmin.php?IngUsuario=false&idvete='.$resultadousu["id_Asis"]);
+}
 ?>
 <form action="" class="container-fluid" method="POST">
-    <a class="btnLogOut btn btn-danger" href="../Login/Login.php">Cerrar Session</a> 
+    <a class="btnLogOut btn btn-danger" href="../Login/Login.php">Cerrar Sesión</a> 
     <h1>
         Mis citas
     </h1>
@@ -65,6 +71,12 @@ if (isset($_GET['idElim']))
                     </label>
                 </div>      
                </div>
+                <div>
+                    <a class="btn btn-info" href="../Doctor/ActualizaDoctor.php?idveterinario=<?php echo $resultadousu["id_Asis"];?>&idUsuario=<?php echo$_GET["id"];?>">Actualizar info veterinario</a>
+                    <button style="float:right;" type="submit" id="pdf" name="generate_pdf" class="btn btn-primary">
+                        <i class="fa fa-pdf" aria-hidden="true"></i>
+                    Exportar PDF usuarios</button>
+                </div>
             </div>
            </div>
         </div>
@@ -73,7 +85,7 @@ if (isset($_GET['idElim']))
     <thead>
         <tr>
             <th>
-                Id Cita
+                Número de cita
             </th>
             <th>
                 Cliente
@@ -99,7 +111,7 @@ if (isset($_GET['idElim']))
             <td>
            ". $resultado[$i]["idCitas"].
             "</td>
-            <td>".$resultado[$i]["nombre"].
+            <td>".$resultado[$i]["nombre"]." ".$resultado[$i]["apellido"].
             "</td>
             <td>".$resultado[$i]["Nombre"].
             "</td>

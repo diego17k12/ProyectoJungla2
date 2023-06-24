@@ -33,8 +33,10 @@ if(isset($_GET["idElim"]))
 
 ?>
 <form method="POST" action="" class="container-fluid">
-    <div class="mb-3">
-        <a class="btnLogOut btn btn-danger" href="../Cliente/Cliente.php?id=<?php echo $_GET["idusu"];?>">Regresar a <br>cliente </a>
+    <div class="mb-3 row">
+        <div class="col-sm-12">
+            <a class="btnLogOut btn btn-danger" href="../Cliente/Cliente.php?id=<?php echo $_GET["idusu"];?>">Regresar a cliente </a>    
+        </div>
     </div>
     <div class="mb-3 mt-5 row">
         <label class="form-label col-sm-2">Nombre: </label>

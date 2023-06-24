@@ -19,7 +19,7 @@ Class dbConexion{
 	var $dbhost = "localhost";
 	var $username = "root";
 	var $password = "";
-	var $dbname = "veterinaria2";
+	var $dbname = "veterinaria";
 	var $conn;
 	//Funcion de conexion MySQL
 	function getConexion() {

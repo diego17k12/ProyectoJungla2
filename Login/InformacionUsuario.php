@@ -66,8 +66,10 @@ if(isset($_POST["enviar"]))
 ?>
 
 <form method="POST" action="" class="container-fluid">
-    <div class="mb-3 btnLogOut">
+    <div class="mb-3 row btnLogOut">
+    	<div class="col-sm-12">
         <a class="btn btn-info" href="">Regresar a cliente </a>
+    	</div>
     </div>
     <div class="mb-3 mt-5 row">
  		<label class="form-label col-sm-2">No. Identificación: </label>

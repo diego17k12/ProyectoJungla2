@@ -90,13 +90,16 @@ if(isset($_POST['add']))
 					echo $error->getMessage();
 				}
 
-				echo '<p class="error">El usuario o contrseña no son correctos</p>';
+				echo '<p class="error">El usuario o contraseña no son correctos</p>';
 			}
 		}
         //echo '<p class="error">The email address is already registered!</p>';
     }
 
-	if($statement->rowCount() == 0){
+    	if($statement->rowCount() == 0){
+    		echo '<p class="error">El usuario no es correcto</p>';
+    	}
+	/*if($statement->rowCount() == 0){
 		//insert
 		$sql= "INSERT INTO usuario(usuario,contrasena,Tipo)
 				VALUES ('".$usu."','".$pass."','cli')";
@@ -106,6 +109,6 @@ if(isset($_POST['add']))
 		}catch(PDOException $error){
 			echo $error->getMessage();
 		}		
-	}
+	}*/
 }
 ?>

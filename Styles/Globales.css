@@ -54,8 +54,8 @@ th{
         }
 
 .btnLogOut{
+    float: right;
     position: relative;
-    left: 86%;
     top: 10px;
-    /*style="margin-top: 30px; text-align: right;"*/
+    /*left: 86%;style="margin-top: 30px; text-align: right;"*/
 }

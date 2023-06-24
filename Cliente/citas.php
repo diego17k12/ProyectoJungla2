@@ -50,8 +50,10 @@
 <form action="" method="POST">
     <div class="container-fluid">
         <h1>Agendar citas</h1>
-        <div class="mb-3">
-            <a class="btnLogOut btn btn-danger" href="../Cliente/Cliente.php?id=<?php echo $_GET["idusu"];?>">Regresar a usuario</a>
+        <div class="mb-3 row">
+            <div class="col-sm-12">
+                <a class="btnLogOut btn btn-danger" href="../Cliente/Cliente.php?id=<?php echo $_GET["idusu"];?>">Regresar a usuario</a>    
+            </div>
         </div>
         <div class="mb-3 row">
             <label class="form-label col-sm-2">Fecha: </label>
@@ -73,7 +75,7 @@
                     ?>
                 </select>
             </div>
-             <label class="control-label col-sm-2">Tipo de servicio: </label>  
+             <label class="control-label col-sm-2">Tipo servicio: </label>  
              <div class="col-sm-4">
                 <select name="servicio" class="form-control" id="">
                     <option value="">seleccione</option>
@@ -101,7 +103,7 @@
         <table class="mt-3 table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Numero de cita</th>
+                    <th>Número de cita</th>
                     <th>Mascota</th>
                     <th>Fecha</th>
                     <th>Hora</th>
