@@ -164,7 +164,7 @@ if(isset($_POST['Consultar']))
 						<td><?php echo $lstReserva[$i]["telefono"];?></td>
 						<td><?php echo $lstReserva[$i]["estado"];?></td>
 						
-						<td><a href="../Cliente/citas.php?id=<?php echo $lstReserva[$i]["idreserva"];?>" class="btn btn-warning" id="">Ir a citas</a> <a onclick="valida(event);" href="../Admin/Admin.php?idCancel=<?php echo $lstReserva[$i]["idreserva"];  ?>" class="btn btn-danger" id="">Eliminar</a></td>
+						<td><a href="../Cliente/citas.php?id=<?php echo $lstReserva[$i]["idreserva"];?>" class="btn btn-warning"id="">Ir a citas</a> <a onclick="valida(event);" href="../Admin/Admin.php?idCancel=<?php echo $lstReserva[$i]["idreserva"];  ?>" class="btn btn-danger" id="">Eliminar</a></td>
 					</tr> 
 					<?php }?>
 				</tbody>			
